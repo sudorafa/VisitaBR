@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <bool name="land">false</bool>
+    <bool name="tablet">false</bool>
+    <bool name="phone">true</bool>
+</resources>
