@@ -1,12 +1,14 @@
 package com.example.orafa.visitabr.model;
 
+import org.parceler.Parcel;
+
 import java.util.List;
 
 /**
  * Created by oRafa on 30/11/2017.
  */
 
-
+@Parcel
 public class Country {
 
     private String initials;
@@ -14,6 +16,18 @@ public class Country {
     private String region;
     private String capital;
     private List<String> city;
+
+    public Country(String initials, String name, String region, String capital, List<String> city) {
+        this.initials = initials;
+        this.name = name;
+        this.region = region;
+        this.capital = capital;
+        this.city = city;
+    }
+
+    public Country() {
+
+    }
 
     public String getInitials() {
         return initials;

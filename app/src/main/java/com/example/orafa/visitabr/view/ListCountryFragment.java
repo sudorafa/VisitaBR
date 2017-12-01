@@ -1,11 +1,11 @@
 package com.example.orafa.visitabr.view;
 
 
+import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,17 +13,18 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.orafa.visitabr.R;
+import com.example.orafa.visitabr.model.ClickStateListener;
 import com.example.orafa.visitabr.model.Country;
-import com.example.orafa.visitabr.model.CountryAdapter;
+import com.example.orafa.visitabr.adapter.CountryAdapter;
 import com.example.orafa.visitabr.model.Object;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnItemClick;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -38,6 +39,8 @@ public class ListCountryFragment extends Fragment {
 
     List<Country> mCountry;
     ArrayAdapter<Country> mAdapterCountry;
+
+    private ProgressDialog dialog;
 
     StateTask mTask;
 
@@ -72,11 +75,21 @@ public class ListCountryFragment extends Fragment {
         }
     }
 
+    @OnItemClick(R.id.list_view_country)
+    public void itemSelectedCountry(int position){
+        Country country = mCountry.get(position);
+        if(getActivity() instanceof ClickStateListener){
+            ClickStateListener listener = (ClickStateListener) getActivity();
+            listener.stateClicked(country);
+        }
+    }
+
     class StateTask extends AsyncTask<Void, Void, Object> {
 
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
+            dialog = ProgressDialog.show(mListViewCountry.getContext(),getString(R.string.list_states),getString(R.string.loading));
         }
 
         @Override
@@ -88,7 +101,7 @@ public class ListCountryFragment extends Fragment {
             try {
                 Response response = client.newCall(request).execute();
                 String jsonString = response.body().string();
-                Log.d("testarJSON", jsonString);
+                //Log.d("testarJSON", jsonString);
                 Gson gson = new Gson();
                 Object object = gson.fromJson(jsonString, Object.class);
                 return object;
@@ -101,6 +114,7 @@ public class ListCountryFragment extends Fragment {
         @Override
         protected void onPostExecute(Object object) {
             super.onPostExecute(object);
+            dialog.dismiss();
             if (object != null) {
                 mCountry.clear();
                 mCountry.addAll(object.getCountry());

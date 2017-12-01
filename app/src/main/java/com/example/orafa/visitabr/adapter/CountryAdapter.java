@@ -1,4 +1,4 @@
-package com.example.orafa.visitabr.model;
+package com.example.orafa.visitabr.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.orafa.visitabr.R;
+import com.example.orafa.visitabr.model.Country;
 
 import java.util.List;
 

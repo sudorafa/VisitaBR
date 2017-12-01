@@ -8,6 +8,14 @@
     android:padding="16dp"
     tools:context="com.example.orafa.visitabr.view.CountryActivity">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/list_of_states_brazil"
+        android:textSize="25sp"
+        android:textAlignment="center"
+        android:padding="5dp"/>
+
     <fragment
         android:id="@+id/fragment_list_country"
         android:name="com.example.orafa.visitabr.view.ListCountryFragment"
