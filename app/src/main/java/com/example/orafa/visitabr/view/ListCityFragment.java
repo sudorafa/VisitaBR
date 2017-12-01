@@ -13,6 +13,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.orafa.visitabr.R;
+import com.example.orafa.visitabr.adapter.CityAdapter;
 import com.example.orafa.visitabr.model.Country;
 
 import org.parceler.Parcels;
@@ -67,9 +68,10 @@ public class ListCityFragment extends Fragment {
         View layout = inflater.inflate(R.layout.fragment_list_city, container, false);
 
         ButterKnife.bind(this, layout);
+
         mCity.addAll(mCountry.getCity());
 
-        mAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, mCity);
+        mAdapter = new CityAdapter(getContext(), mCity);
 
         listViewCity.setAdapter(mAdapter);
 
