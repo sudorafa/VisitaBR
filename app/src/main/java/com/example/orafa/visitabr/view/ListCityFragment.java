@@ -54,11 +54,6 @@ public class ListCityFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            Parcelable p = getArguments().getParcelable(EXTRA_COUNTRY);
-            mCountry = Parcels.unwrap(p);
-        }
-        mCityPower = new ArrayList<>();
     }
 
     @Override
@@ -66,6 +61,12 @@ public class ListCityFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View layout = inflater.inflate(R.layout.fragment_list_city, container, false);
+
+        if (getArguments() != null) {
+            Parcelable p = getArguments().getParcelable(EXTRA_COUNTRY);
+            mCountry = Parcels.unwrap(p);
+        }
+        mCityPower = new ArrayList<>();
 
         ButterKnife.bind(this, layout);
 

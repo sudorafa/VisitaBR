@@ -10,4 +10,8 @@
     <string name="city_fav">Favoritas</string>
     <string name="city_went">Irei</string>
     <string name="city_will">Fui</string>
+    <string name="cities">Cidades</string>
+    <string name="wish">Favoritos</string>
+    <string name="went">Vou</string>
+    <string name="will">Fui</string>
 </resources>
