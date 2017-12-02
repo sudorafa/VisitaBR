@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 
 import com.example.orafa.visitabr.R;
 import com.example.orafa.visitabr.model.Country;
@@ -24,14 +25,18 @@ public class ListCityActivity extends AppCompatActivity {
     @BindView(R.id.tab_layout)
     TabLayout mTabLayout;
 
+    @BindView(R.id.toolbar)
+    Toolbar mToolbar;
+
     public static final String EXTRA_COUNTRY = "country";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_city);
-
         ButterKnife.bind(this);
+
+        setSupportActionBar(mToolbar);
 
         mViewPager.setAdapter(new CityPager(getSupportFragmentManager()));
         mTabLayout.setupWithViewPager(mViewPager);
