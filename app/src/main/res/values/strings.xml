@@ -6,4 +6,8 @@
     <string name="list_of_states_brazil">Lista de Estados no Brasil</string>
     <string name="list_states">Lista de Estados</string>
     <string name="loading">Carregando...</string>
+    <string name="list_city">Cidades</string>
+    <string name="city_fav">Favoritas</string>
+    <string name="city_went">Irei</string>
+    <string name="city_will">Fui</string>
 </resources>
