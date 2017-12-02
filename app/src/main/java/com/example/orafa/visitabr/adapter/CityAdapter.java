@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.orafa.visitabr.R;
+import com.example.orafa.visitabr.model.CityPower;
 
 import java.util.List;
 
@@ -21,16 +22,17 @@ import butterknife.ButterKnife;
  * Created by oRafa on 01/12/2017.
  */
 
-public class CityAdapter extends ArrayAdapter<String> {
+public class CityAdapter extends ArrayAdapter<CityPower>{
 
-    public CityAdapter(@NonNull Context context, List<String> cities) {
-        super(context, 0, cities);
+
+    public CityAdapter(@NonNull Context context, @NonNull List<CityPower> objects) {
+        super(context, 0, objects);
     }
 
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        String city = getItem(position);
+        CityPower cityPower = getItem(position);
 
         ViewHolder viewHolder;
 
@@ -38,13 +40,13 @@ public class CityAdapter extends ArrayAdapter<String> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_city, parent, false);
             viewHolder = new ViewHolder(convertView);
             convertView.setTag(viewHolder);
-        }else{
+        } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
         ButterKnife.bind(this, convertView);
 
-        viewHolder.textViewName.setText(city);
-
+        viewHolder.textViewName.setText(String.format("%s - %s", cityPower.getName(), cityPower.getCountry().getInitials()));
+        viewHolder.textViewRegion.setText(String.format("%s - %s", cityPower.getCountry().getName(), cityPower.getCountry().getRegion()));
 
         return convertView;
     }
@@ -54,6 +56,8 @@ public class CityAdapter extends ArrayAdapter<String> {
         ImageView imageViewCover;
         @BindView(R.id.text_view_Name)
         TextView textViewName;
+        @BindView(R.id.text_view_region)
+        TextView textViewRegion;
 
         public ViewHolder(View parent) {
             ButterKnife.bind(this, parent);

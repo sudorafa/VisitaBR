@@ -23,12 +23,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="18dp"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="14dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
         android:layout_toEndOf="@+id/image_view_cover"
         android:layout_toRightOf="@+id/image_view_cover"
-        android:text="Recife"
-        android:textSize="30sp" />
+        android:text="Recife - PE"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/text_view_region"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/text_view_Name"
+        android:layout_alignStart="@+id/text_view_Name"
+        android:layout_below="@+id/text_view_Name"
+        android:text="Pernambuco - Nordeste"
+        android:textSize="15sp" />
 
 </RelativeLayout>

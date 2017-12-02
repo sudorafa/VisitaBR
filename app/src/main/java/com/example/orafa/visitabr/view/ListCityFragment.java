@@ -10,10 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.example.orafa.visitabr.R;
 import com.example.orafa.visitabr.adapter.CityAdapter;
+import com.example.orafa.visitabr.model.CityPower;
 import com.example.orafa.visitabr.model.Country;
 
 import org.parceler.Parcels;
@@ -32,8 +32,8 @@ public class ListCityFragment extends Fragment {
     private static final String EXTRA_COUNTRY = "param1";
 
     private Country mCountry;
-    private List<String> mCity;
-    ArrayAdapter<String> mAdapter;
+    private List<CityPower> mCityPower;
+    ArrayAdapter<CityPower> mAdapter;
 
     @BindView(R.id.list_view_city)
     ListView listViewCity;
@@ -58,7 +58,7 @@ public class ListCityFragment extends Fragment {
             Parcelable p = getArguments().getParcelable(EXTRA_COUNTRY);
             mCountry = Parcels.unwrap(p);
         }
-        mCity = new ArrayList<>();
+        mCityPower = new ArrayList<>();
     }
 
     @Override
@@ -69,9 +69,14 @@ public class ListCityFragment extends Fragment {
 
         ButterKnife.bind(this, layout);
 
-        mCity.addAll(mCountry.getCity());
+        CityPower cp;
 
-        mAdapter = new CityAdapter(getContext(), mCity);
+        for(String s : mCountry.getCity()) {
+            cp = new CityPower(s, mCountry);
+            mCityPower.add(cp);
+        }
+
+        mAdapter = new CityAdapter(getContext(), mCityPower);
 
         listViewCity.setAdapter(mAdapter);
 
