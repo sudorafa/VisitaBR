@@ -1,6 +1,7 @@
 package com.example.orafa.visitabr.view;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.Nullable;
@@ -24,6 +25,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnItemClick;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -89,4 +91,12 @@ public class ListCityFragment extends Fragment {
         return layout;
     }
 
+    @OnItemClick(R.id.list_view_city)
+    public void itemSelectedCountry(int position) {
+        CityPower cityPower = mCityPower.get(position);
+        Intent intent = new Intent(getContext(), DetailCityActivity.class);
+        Parcelable parcelable = Parcels.wrap(cityPower);
+        intent.putExtra(DetailCityActivity.EXTRA_CITY, parcelable);
+        startActivity(intent);
+    }
 }

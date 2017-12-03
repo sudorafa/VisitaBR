@@ -20,7 +20,7 @@ import org.parceler.Parcels;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class CountryActivity extends AppCompatActivity implements ClickStateListener{
+public class CountryActivity extends AppCompatActivity implements ClickStateListener {
 
     @BindView(R.id.view_pager)
     ViewPager mViewPager;
@@ -91,6 +91,7 @@ public class CountryActivity extends AppCompatActivity implements ClickStateList
             return null;
         }
     }
+
     private void setupTabIcons() {
         mTabLayout.getTabAt(0).setIcon(tabIcons[0]);
         mTabLayout.getTabAt(1).setIcon(tabIcons[1]);
@@ -99,24 +100,26 @@ public class CountryActivity extends AppCompatActivity implements ClickStateList
     }
 
     @Override
-    public void stateClicked(Country country) {
-        if (getResources().getBoolean(R.bool.tablet)) {
-            ListCityFragment listCityFragment = ListCityFragment.newInstance(country);
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.city, listCityFragment, "city")
-                    .commit();
-        } else if (getResources().getBoolean(R.bool.land)) {
-            ListCityFragment listCityFragment = ListCityFragment.newInstance(country);
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.city, listCityFragment, "city")
-                    .commit();
-        } else {
-            Intent intent = new Intent(this, ListCityActivity.class);
-            Parcelable parcelable = Parcels.wrap(country);
-            intent.putExtra(ListCityActivity.EXTRA_COUNTRY, parcelable);
-            startActivity(intent);
+    public void stateClicked(Country country, String page) {
+        if (page.equals("city")) {
+            if (getResources().getBoolean(R.bool.tablet)) {
+                ListCityFragment listCityFragment = ListCityFragment.newInstance(country);
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.city, listCityFragment, "city")
+                        .commit();
+            } else if (getResources().getBoolean(R.bool.land)) {
+                ListCityFragment listCityFragment = ListCityFragment.newInstance(country);
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.city, listCityFragment, "city")
+                        .commit();
+            } else {
+                Intent intent = new Intent(this, ListCityActivity.class);
+                Parcelable parcelable = Parcels.wrap(country);
+                intent.putExtra(ListCityActivity.EXTRA_COUNTRY, parcelable);
+                startActivity(intent);
+            }
         }
     }
 }

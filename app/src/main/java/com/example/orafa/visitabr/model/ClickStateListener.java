@@ -5,5 +5,5 @@ package com.example.orafa.visitabr.model;
  */
 
 public interface ClickStateListener {
-    void stateClicked(Country country);
+    void stateClicked(Country country, String page);
 }
