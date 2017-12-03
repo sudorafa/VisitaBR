@@ -1,10 +1,7 @@
 package com.example.orafa.visitabr.view;
 
-import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.AttributeSet;
-import android.view.View;
 import android.widget.TextView;
 
 import com.example.orafa.visitabr.R;
@@ -31,7 +28,7 @@ public class DetailCityActivity extends AppCompatActivity {
         mCityPower = Parcels.unwrap(getIntent().getParcelableExtra(EXTRA_CITY));
 
         ButterKnife.bind(this);
-        
+
         textViewTest.setText(mCityPower.getName());
     }
 }
