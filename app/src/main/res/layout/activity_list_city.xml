@@ -7,13 +7,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context="com.example.orafa.visitabr.view.ListCityActivity">
-
-    <fragment
-        android:id="@+id/fragment_list_country"
-        android:name="com.example.orafa.visitabr.view.ListCityFragment"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
+    tools:context="com.example.orafa.visitabr.view.ListCityFragment">
 
 </LinearLayout>

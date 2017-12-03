@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.orafa.visitabr.R;
 import com.example.orafa.visitabr.adapter.CityAdapter;
@@ -37,6 +38,9 @@ public class ListCityFragment extends Fragment {
 
     @BindView(R.id.list_view_city)
     ListView listViewCity;
+
+    @BindView(R.id.text_view_city_title)
+    TextView textViewCityTitle;
 
     public ListCityFragment() {
         // Required empty public constructor
@@ -80,6 +84,7 @@ public class ListCityFragment extends Fragment {
         mAdapter = new CityAdapter(getContext(), mCityPower);
 
         listViewCity.setAdapter(mAdapter);
+        textViewCityTitle.setText(String.format("%s %s", getString(R.string.citiesOfState), mCountry.getName()));
 
         return layout;
     }
