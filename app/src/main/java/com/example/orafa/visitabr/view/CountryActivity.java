@@ -31,6 +31,13 @@ public class CountryActivity extends AppCompatActivity implements ClickStateList
     @BindView(R.id.toolbar)
     Toolbar mToolbar;
 
+    private int[] tabIcons = {
+            R.drawable.ic_action_states,
+            R.drawable.ic_action_wish,
+            R.drawable.ic_action_went,
+            R.drawable.ic_action_will
+    };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +49,7 @@ public class CountryActivity extends AppCompatActivity implements ClickStateList
 
         mViewPager.setAdapter(new CityPager(getSupportFragmentManager()));
         mTabLayout.setupWithViewPager(mViewPager);
+        setupTabIcons();
     }
 
     class CityPager extends FragmentPagerAdapter {
@@ -82,6 +90,12 @@ public class CountryActivity extends AppCompatActivity implements ClickStateList
             }
             return null;
         }
+    }
+    private void setupTabIcons() {
+        mTabLayout.getTabAt(0).setIcon(tabIcons[0]);
+        mTabLayout.getTabAt(1).setIcon(tabIcons[1]);
+        mTabLayout.getTabAt(2).setIcon(tabIcons[2]);
+        mTabLayout.getTabAt(3).setIcon(tabIcons[3]);
     }
 
     @Override
