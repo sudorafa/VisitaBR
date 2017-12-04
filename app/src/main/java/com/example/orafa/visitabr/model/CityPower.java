@@ -13,8 +13,8 @@ public class CityPower {
     private String name;
     private Country country;
     private String reason;
-    private String when;
-    private String where;
+    private String whenDay;
+    private String place;
     private String cause;
 
     public CityPower(String name, Country country) {
@@ -22,12 +22,12 @@ public class CityPower {
         this.country = country;
     }
 
-    public CityPower(String name, Country country, String reason, String when, String where, String cause) {
+    public CityPower(String name, Country country, String reason, String whenDay, String place, String cause) {
         this.name = name;
         this.country = country;
         this.reason = reason;
-        this.when = when;
-        this.where = where;
+        this.whenDay = whenDay;
+        this.place = place;
         this.cause = cause;
     }
 
@@ -59,20 +59,20 @@ public class CityPower {
         this.reason = reason;
     }
 
-    public String getWhen() {
-        return when;
+    public String getWhenDay() {
+        return whenDay;
     }
 
-    public void setWhen(String when) {
-        this.when = when;
+    public void setWhenDay(String whenDay) {
+        this.whenDay = whenDay;
     }
 
-    public String getWhere() {
-        return where;
+    public String getPlace() {
+        return place;
     }
 
-    public void setWhere(String where) {
-        this.where = where;
+    public void setPlace(String place) {
+        this.place = place;
     }
 
     public String getCause() {

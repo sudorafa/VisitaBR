@@ -39,8 +39,8 @@ public class DCountryUser {
             cv.put("idUser", ID_USER);
             cv.put("idCountry", idCountry);
             cv.put("reason", cityPower.getReason());
-            cv.put("when", cityPower.getWhen());
-            cv.put("where", cityPower.getWhere());
+            cv.put("whenDay", cityPower.getWhenDay());
+            cv.put("place", cityPower.getPlace());
             cv.put("cause", cityPower.getCause());
         }
         return cv;
@@ -104,9 +104,10 @@ public class DCountryUser {
         Cursor cursor = db.rawQuery(
                 String.format("select con.idCountry from %s as con inner join %s as ct on con.idCountry = ct.idCountry  where con.nameCountry = ? and ct.nameCity = ? ", TABLE_COUNTRY, TABLE_CITY)
                 , new String[]{cityPower.getCountry().getName(), cityPower.getName()});
-        if (cursor != null) {
-            cursor.moveToNext();
-            idCountry = cursor.getLong(0);
+        if (cursor != null && cursor.moveToFirst()) {
+            //cursor.moveToNext();
+            idCountry = cursor.getInt(0);
+            cursor.close();
         }
         return idCountry;
     }
@@ -114,14 +115,16 @@ public class DCountryUser {
     public long findExistReason(CityPower cityPower, long idCountry) {
         SQLiteDatabase db = helper.getWritableDatabase();
         long existReason = 0;
-        String rafa = String.valueOf(idCountry);
 
-        Cursor cursor = db.rawQuery(
-                String.format("select count(*) from %s where idCountry = ? and reason = ?", TABLE_USER_REASON)
-                , new String[]{String.valueOf(idCountry), cityPower.getReason()});
-        if (cursor != null) {
-            cursor.moveToNext();
-            existReason = cursor.getLong(0);
+        if(cityPower.getReason()!=null){
+            Cursor cursor = db.rawQuery(
+                    String.format("select count(*) from %s where idCountry = ? and reason = ?", TABLE_USER_REASON)
+                    , new String[]{String.valueOf(idCountry), cityPower.getReason()});
+            if (cursor != null && cursor.moveToFirst()) {
+                //cursor.moveToNext();
+                existReason = cursor.getLong(0);
+                cursor.close();
+            }
         }
         return existReason;
     }

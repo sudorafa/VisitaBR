@@ -45,6 +45,7 @@ public class DetailCityActivity extends AppCompatActivity {
 
 
     private void toggleWish(){
+        mCityPower.setReason("wish");
         mDCountryUser = new DCountryUser(this);
         boolean wish = mDCountryUser.isFav(mCityPower);
 

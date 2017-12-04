@@ -28,7 +28,7 @@ public class CountryUserHelper extends SQLiteOpenHelper {
         String sqlTableCity = "create table " + TABLE_CITY + " (idCity integer primary key, nameCity TEXT, idCountry integer);";
         db.execSQL(sqlTableCity);
 
-        String sqlTableUser = "create table " + TABLE_USER_REASON + " (idUser integer, idCountry integer, reason TEXT, when DATETIME, where TEXT, cause TEXT);";
+        String sqlTableUser = "create table " + TABLE_USER_REASON + " (idUser integer, idCountry integer, reason TEXT, whenDay DATETIME, place TEXT, cause TEXT);";
         db.execSQL(sqlTableUser);
     }
 
