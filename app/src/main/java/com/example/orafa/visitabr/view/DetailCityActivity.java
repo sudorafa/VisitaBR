@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.example.orafa.visitabr.R;
+import com.example.orafa.visitabr.dao.DCountryUser;
 import com.example.orafa.visitabr.model.CityPower;
 
 import org.parceler.Parcels;
@@ -20,6 +21,7 @@ public class DetailCityActivity extends AppCompatActivity {
 
     public static final String EXTRA_CITY = "city";
     CityPower mCityPower;
+    DCountryUser mDCountryUser;
 
     @BindView(R.id.text_view_name)
     TextView textViewName;
@@ -41,8 +43,11 @@ public class DetailCityActivity extends AppCompatActivity {
 
     }
 
+
     private void toggleWish(){
-        boolean wish = isFav("rafaa");
+        mDCountryUser = new DCountryUser(this);
+        boolean wish = mDCountryUser.isFav(mCityPower);
+
         floatButtonWish.setBackgroundTintList(
                 wish ? ColorStateList.valueOf(Color.RED) : ColorStateList.valueOf(Color.GREEN)
         );
@@ -50,24 +55,6 @@ public class DetailCityActivity extends AppCompatActivity {
 
     @OnClick(R.id.float_button_wish)
     public void wishClick(){
-        String rafa = "rafa";
-        if(isFav(rafa)){
-            //remove
-        }else{
-            //add
-        }
+        mDCountryUser.saveCountryAndUserReason(mCityPower);
     }
-
-    //fazer +/- isso no DAO
-    public boolean isFav(String rafa){
-        String rafaAqui = "rafa";
-        boolean yes = false;
-
-        if(rafaAqui.equals(rafa)){
-            yes = true;
-        }
-
-        return yes;
-    }
-
 }

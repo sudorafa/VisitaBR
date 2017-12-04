@@ -101,7 +101,6 @@ public class ListCountryFragment extends Fragment {
             try {
                 Response response = client.newCall(request).execute();
                 String jsonString = response.body().string();
-                //Log.d("testarJSON", jsonString);
                 Gson gson = new Gson();
                 Object object = gson.fromJson(jsonString, Object.class);
                 return object;
