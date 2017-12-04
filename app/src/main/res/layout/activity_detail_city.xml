@@ -11,6 +11,22 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="Cidade: Recife - PE"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="Pernambuco - Nordeste"
+            android:textSize="20sp" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -18,31 +34,117 @@
             android:orientation="horizontal"
             android:padding="16dp">
 
-            <android.support.design.widget.FloatingActionButton
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                app:fabSize="normal" />
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
-            <android.support.design.widget.FloatingActionButton
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                app:fabSize="normal" />
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/float_button_wish"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/ic_favorite"
+                    app:fabSize="normal" />
 
-            <android.support.design.widget.FloatingActionButton
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                app:fabSize="normal" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/float_button_wish"
+                    android:layout_centerHorizontal="true"
+                    android:text="Favorito" />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/float_button_went"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    app:fabSize="normal" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/float_button_went"
+                    android:layout_centerHorizontal="true"
+                    android:text="Eu vou" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/float_button_will"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    app:fabSize="normal" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/float_button_will"
+                    android:layout_centerHorizontal="true"
+                    android:text="Já Fui" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/float_button_map"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    app:fabSize="normal" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/float_button_map"
+                    android:layout_centerHorizontal="true"
+                    android:text="Ver Mapa" />
+
+            </RelativeLayout>
 
         </LinearLayout>
 
         <TextView
-            android:id="@+id/text_view_test"
+            android:id="@+id/text_view_population"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TESTE"/>
+            android:padding="10dp"
+            android:text="População: " />
+
+        <TextView
+            android:id="@+id/text_view_size_city"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Tamanho: " />
+
+        <TextView
+            android:id="@+id/text_view_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Todos os detalhes da cidade serão exibidos aqui, como é, se é litoral, iinterior, cultura, etc..."
+            android:textAlignment="center" />
+        <TextView
+            android:id="@+id/text_view_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:gravity="end" />
 
     </LinearLayout>
 
