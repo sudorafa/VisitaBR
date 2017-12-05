@@ -53,6 +53,8 @@ public class DetailCityFragment extends Fragment {
     FloatingActionButton floatButtonWent;
     @BindView(R.id.float_button_will)
     FloatingActionButton floatButtonWill;
+    @BindView(R.id.float_button_map)
+    FloatingActionButton getFloatButtonMap;
 
 
     public DetailCityFragment() {
@@ -155,6 +157,12 @@ public class DetailCityFragment extends Fragment {
         Intent intent = new Intent(getActivity(), DetailCityWentWillActivity.class);
         Parcelable parcelable = Parcels.wrap(cityPower);
         intent.putExtra(DetailCityWentWillActivity.EXTRA_CITY, parcelable);
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.float_button_map)
+    public void mapClick() {
+        Intent intent = new Intent(getActivity(), MapsActivity.class);
         startActivity(intent);
     }
 
