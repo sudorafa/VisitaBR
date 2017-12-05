@@ -65,9 +65,9 @@ public class CountryActivity extends AppCompatActivity implements ClickStateList
             } else if (position == 1) {
                 return new ListCityWishFragment();
             } else if (position == 2) {
-                return new ListCityWentFragment();
-            } else if (position == 3) {
                 return new ListCityWillFragment();
+            } else if (position == 3) {
+                return new ListCityWentFragment();
             }
             return null;
         }
@@ -84,9 +84,9 @@ public class CountryActivity extends AppCompatActivity implements ClickStateList
             } else if (position == 1) {
                 return getString(R.string.wish);
             } else if (position == 2) {
-                return getString(R.string.went);
-            } else if (position == 3) {
                 return getString(R.string.will);
+            } else if (position == 3) {
+                return getString(R.string.went);
             }
             return null;
         }

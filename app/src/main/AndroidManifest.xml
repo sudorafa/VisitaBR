@@ -20,8 +20,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.ListCityActivity"></activity>
-        <activity android:name=".view.DetailCityActivity"></activity>
+        <activity android:name=".view.ListCityActivity" />
+        <activity android:name=".view.DetailCityActivity" />
+        <activity android:name=".view.DetailCityWentWillActivity"></activity>
     </application>
 
 </manifest>

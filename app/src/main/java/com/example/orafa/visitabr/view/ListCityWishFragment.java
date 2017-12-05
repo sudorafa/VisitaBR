@@ -54,8 +54,6 @@ public class ListCityWishFragment extends Fragment {
 
         ButterKnife.bind(this, layout);
 
-        //runList();
-
         return layout;
     }
 

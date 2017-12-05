@@ -12,12 +12,33 @@
     <string name="city_will">Fui</string>
     <string name="cities">Cidades</string>
     <string name="wish">Favoritos</string>
-    <string name="went">Vou</string>
-    <string name="will">Fui</string>
+    <string name="went">Fui</string>
+    <string name="will">Vou</string>
     <string name="states">Estados</string>
     <string name="citiesOfState">Cidades do Estado:</string>
     <string name="isWish">Favoritado</string>
     <string name="addToWish">Add Favorito</string>
     <string name="city">Cidade</string>
     <string name="cities_wish">Cidades Favoritas</string>
+    <string name="i_go">Eu Vou</string>
+    <string name="question_go">vai?</string>
+    <string name="i_went">Fui</string>
+    <string name="question_went">Já Foi?</string>
+    <string name="cause">Motivo</string>
+    <string name="place">Lugar</string>
+
+    <!--<string name="country_prompt">Choose a country</string>-->
+    <string name="country_prompt">Escolha um Motivo</string>
+    <string name="date">Data</string>
+    <string name="title_went">Já Fui</string>
+    <string name="title_will">Eu Vou</string>
+    <string name="cities_will">Cidades Que Irei</string>
+    <string name="cities_went">Cidades Que Já Fui</string>
+    <string-array name="country_arrays">
+        <item>Lazer</item>
+        <item>Trabalho</item>
+        <item>Envento Unico</item>
+        <item>Férias</item>
+        <item>Outros</item>
+    </string-array>
 </resources>

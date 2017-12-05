@@ -33,12 +33,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:orientation="horizontal"
-            android:padding="16dp">
+            android:orientation="horizontal">
 
             <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp">
 
                 <android.support.design.widget.FloatingActionButton
                     android:id="@+id/float_button_wish"
@@ -61,16 +61,19 @@
 
             <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp">
 
                 <android.support.design.widget.FloatingActionButton
                     android:id="@+id/float_button_went"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
+                    android:src="@drawable/ic_person_pin"
                     app:fabSize="normal" />
 
                 <TextView
+                    android:id="@+id/text_view_label_went"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/float_button_went"
@@ -81,16 +84,19 @@
 
             <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp">
 
                 <android.support.design.widget.FloatingActionButton
                     android:id="@+id/float_button_will"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
+                    android:src="@drawable/ic_pin_drop"
                     app:fabSize="normal" />
 
                 <TextView
+                    android:id="@+id/text_view_label_will"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/float_button_will"
@@ -101,13 +107,15 @@
 
             <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp">
 
                 <android.support.design.widget.FloatingActionButton
                     android:id="@+id/float_button_map"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
+                    android:src="@drawable/ic_map"
                     app:fabSize="normal" />
 
                 <TextView

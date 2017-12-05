@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="top|center"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context="com.example.orafa.visitabr.view.DetailCityWentWillActivity">
+
+    <TextView
+        android:id="@+id/text_view_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="CRUD / Já Fui ou Vou"
+        android:textSize="24sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/place"
+            android:textSize="19sp" />
+
+        <EditText
+            android:id="@+id/edit_view_place"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/cause"
+            android:textSize="19sp" />
+
+        <Spinner
+            android:id="@+id/spinner_cause"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:entries="@array/country_arrays"
+            android:prompt="@string/country_prompt" />
+
+    </LinearLayout>
+
+    <TextView
+        android:paddingTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="@string/date"
+        android:textSize="19sp" />
+
+    <CalendarView
+        android:id="@+id/calendar_view_when_day"
+        android:layout_width="363dp"
+        android:layout_height="305dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/float_button_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_gravity="right"
+        android:src="@drawable/ic_save"
+        app:fabSize="normal" />
+
+
+</LinearLayout>

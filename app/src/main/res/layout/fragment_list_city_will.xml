@@ -1,13 +1,22 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.orafa.visitabr.view.ListCityWillFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/text_view_city_will_title"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:text="@string/cities_will"
+        android:textAlignment="center"
+        android:textSize="20sp" />
 
-</FrameLayout>
+    <ListView
+        android:id="@+id/list_view_city_will"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>
