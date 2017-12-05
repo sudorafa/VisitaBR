@@ -33,6 +33,7 @@
     <string name="title_will">I Will</string>
     <string name="cities_will">Citires Will</string>
     <string name="cities_went">Cities Went</string>
+    <string name="view_map">Map</string>
     <string-array name="country_arrays">
         <item>Recreation</item>
         <item>Job</item>

@@ -41,4 +41,5 @@
         <item>Outros</item>
     </string-array>
     <string name="title_activity_maps">Map</string>
+    <string name="view_map">Ver Mapa</string>
 </resources>

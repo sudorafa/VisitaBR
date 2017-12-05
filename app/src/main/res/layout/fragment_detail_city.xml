@@ -120,7 +120,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/float_button_map"
                     android:layout_centerHorizontal="true"
-                    android:text="Ver Mapa" />
+                    android:text="@string/view_map" />
 
             </RelativeLayout>
 
