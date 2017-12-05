@@ -27,7 +27,6 @@
     <string name="cause">Motivo</string>
     <string name="place">Lugar</string>
 
-    <!--<string name="country_prompt">Choose a country</string>-->
     <string name="country_prompt">Escolha um Motivo</string>
     <string name="date">Data</string>
     <string name="title_went">Já Fui</string>

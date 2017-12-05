@@ -80,7 +80,7 @@ public class ListCountryFragment extends Fragment {
         Country country = mCountry.get(position);
         if(getActivity() instanceof ClickStateListener){
             ClickStateListener listener = (ClickStateListener) getActivity();
-            listener.stateClicked(country, "city");
+            listener.stateClicked(country);
         }
     }
 

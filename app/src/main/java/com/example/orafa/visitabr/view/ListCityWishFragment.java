@@ -17,6 +17,7 @@ import com.example.orafa.visitabr.R;
 import com.example.orafa.visitabr.adapter.CityAdapter;
 import com.example.orafa.visitabr.dao.DCountryUser;
 import com.example.orafa.visitabr.model.CityPower;
+import com.example.orafa.visitabr.model.ClickStateListener;
 
 import org.parceler.Parcels;
 
@@ -74,9 +75,15 @@ public class ListCityWishFragment extends Fragment {
     @OnItemClick(R.id.list_view_city_wish)
     public void itemSelectedCountry(int position) {
         CityPower cityPower = mCityPower.get(position);
+        if(getActivity() instanceof ClickStateListener){
+            ClickStateListener listener = (ClickStateListener) getActivity();
+            listener.stateClicked(cityPower);
+        }
+
+        /*CityPower cityPower = mCityPower.get(position);
         Intent intent = new Intent(getContext(), DetailCityActivity.class);
         Parcelable parcelable = Parcels.wrap(cityPower);
         intent.putExtra(DetailCityActivity.EXTRA_CITY, parcelable);
-        startActivity(intent);
+        startActivity(intent);*/
     }
 }
