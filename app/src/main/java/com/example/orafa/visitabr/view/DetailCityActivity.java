@@ -23,11 +23,19 @@ public class DetailCityActivity extends AppCompatActivity {
     CityPower mCityPower;
     DCountryUser mDCountryUser;
 
+    @BindView(R.id.text_view_city_title)
+    TextView textViewCityTitle;
     @BindView(R.id.text_view_name)
     TextView textViewName;
+    @BindView(R.id.text_view_label_wish)
+    TextView textViewLabelWish;
+    @BindView(R.id.text_view_state_region)
+    TextView textViewRegion;
 
     @BindView(R.id.float_button_wish)
     FloatingActionButton floatButtonWish;
+    @BindView(R.id.float_button_went)
+    FloatingActionButton floatButtonWent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,12 +47,14 @@ public class DetailCityActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         textViewName.setText(mCityPower.getName());
+        textViewCityTitle.setText(String.format("%s: %s - %s", getString(R.string.city), mCityPower.getName(), mCityPower.getCountry().getInitials()));
+        textViewRegion.setText(String.format("%s - %s", mCityPower.getCountry().getName(), mCityPower.getCountry().getRegion()));
+
         toggleWish();
 
     }
 
-
-    private void toggleWish(){
+    private void toggleWish() {
         mCityPower.setReason("wish");
         mDCountryUser = new DCountryUser(this);
         boolean wish = mDCountryUser.isFav(mCityPower);
@@ -52,10 +62,20 @@ public class DetailCityActivity extends AppCompatActivity {
         floatButtonWish.setBackgroundTintList(
                 wish ? ColorStateList.valueOf(Color.RED) : ColorStateList.valueOf(Color.GREEN)
         );
+        textViewLabelWish.setText(
+                wish ? getString(R.string.isWish) : getString(R.string.addToWish)
+        );
+
     }
 
     @OnClick(R.id.float_button_wish)
-    public void wishClick(){
+    public void wishClick() {
         mDCountryUser.saveCountryAndUserReason(mCityPower);
+        toggleWish();
+    }
+
+    @OnClick(R.id.float_button_went)
+    public void wentClick(){
+
     }
 }

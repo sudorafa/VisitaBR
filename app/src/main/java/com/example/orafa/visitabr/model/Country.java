@@ -11,13 +11,15 @@ import java.util.List;
 @Parcel
 public class Country {
 
+    private long idCountry;
     private String initials;
     private String name;
     private String region;
     private String capital;
     private List<String> city;
 
-    public Country(String initials, String name, String region, String capital, List<String> city) {
+    public Country(long idCountry, String initials, String name, String region, String capital, List<String> city) {
+        this.idCountry = idCountry;
         this.initials = initials;
         this.name = name;
         this.region = region;
@@ -27,6 +29,14 @@ public class Country {
 
     public Country() {
 
+    }
+
+    public long getIdCountry() {
+        return idCountry;
+    }
+
+    public void setIdCountry(long idCountry) {
+        this.idCountry = idCountry;
     }
 
     public String getInitials() {

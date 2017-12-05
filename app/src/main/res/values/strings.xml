@@ -16,4 +16,8 @@
     <string name="will">Fui</string>
     <string name="states">Estados</string>
     <string name="citiesOfState">Cidades do Estado:</string>
+    <string name="isWish">Favoritado</string>
+    <string name="addToWish">Add Favorito</string>
+    <string name="city">Cidade</string>
+    <string name="cities_wish">Cidades Favoritas</string>
 </resources>

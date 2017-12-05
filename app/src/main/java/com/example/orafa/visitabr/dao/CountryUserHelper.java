@@ -11,7 +11,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class CountryUserHelper extends SQLiteOpenHelper {
 
     private static final String NOME_DB = "visitBR";
-    private static final int VERSION_DB = 1;
+    private static final int VERSION_DB = 9;
     public static final String TABLE_COUNTRY = "country";
     public static final String TABLE_CITY = "city";
     public static final String TABLE_USER_REASON = "userCause";
@@ -22,25 +22,25 @@ public class CountryUserHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String sqlTableCountry = "create table " + TABLE_COUNTRY + " (idCountry integer primary key, nameCountry TEXT, initials TEXT, region TEXT, capital TEXT);";
+        String sqlTableCountry = "create table " + TABLE_COUNTRY + " (idCountry integer primary key AUTOINCREMENT, nameCountry TEXT, initials TEXT, region TEXT, capital TEXT);";
         db.execSQL(sqlTableCountry);
 
-        String sqlTableCity = "create table " + TABLE_CITY + " (idCity integer primary key, nameCity TEXT, idCountry integer);";
+        String sqlTableCity = "create table " + TABLE_CITY + " (idCity integer primary key AUTOINCREMENT, nameCity TEXT, idCountry integer);";
         db.execSQL(sqlTableCity);
 
-        String sqlTableUser = "create table " + TABLE_USER_REASON + " (idUser integer, idCountry integer, reason TEXT, whenDay DATETIME, place TEXT, cause TEXT);";
+        String sqlTableUser = "create table " + TABLE_USER_REASON + " (idUser integer, idCountry integer, idCity integer, reason TEXT, whenDay DATETIME, place TEXT, cause TEXT);";
         db.execSQL(sqlTableUser);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        String sqlTableCountry = "drop table country;";
+        String sqlTableCountry = "drop table " + TABLE_COUNTRY;
         db.execSQL(sqlTableCountry);
 
-        String sqlTableCity = "drop table city;";
+        String sqlTableCity = "drop table " + TABLE_CITY;
         db.execSQL(sqlTableCity);
 
-        String sqlTableUser = "drop table user;";
+        String sqlTableUser = "drop table " + TABLE_USER_REASON;
         db.execSQL(sqlTableUser);
 
         onCreate(db);

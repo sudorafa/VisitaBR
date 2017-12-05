@@ -10,6 +10,7 @@ import java.util.List;
 
 @Parcel
 public class CityPower {
+    private long idCity;
     private String name;
     private Country country;
     private String reason;
@@ -22,7 +23,8 @@ public class CityPower {
         this.country = country;
     }
 
-    public CityPower(String name, Country country, String reason, String whenDay, String place, String cause) {
+    public CityPower(long idCity, String name, Country country, String reason, String whenDay, String place, String cause) {
+        this.idCity = idCity;
         this.name = name;
         this.country = country;
         this.reason = reason;
@@ -33,6 +35,14 @@ public class CityPower {
 
     public CityPower() {
 
+    }
+
+    public long getIdCity() {
+        return idCity;
+    }
+
+    public void setIdCity(long idCity) {
+        this.idCity = idCity;
     }
 
     public String getName() {
