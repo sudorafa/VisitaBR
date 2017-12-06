@@ -10,11 +10,21 @@ public class Object {
 
     private List<Country> country;
 
+    private List<GeoBr> listGeoBr;
+
     public List<Country> getCountry() {
         return country;
     }
 
     public void setCountry(List<Country> country) {
         this.country = country;
+    }
+
+    public List<GeoBr> getListGeoBr() {
+        return listGeoBr;
+    }
+
+    public void setListGeoBr(List<GeoBr> listGeoBr) {
+        this.listGeoBr = listGeoBr;
     }
 }

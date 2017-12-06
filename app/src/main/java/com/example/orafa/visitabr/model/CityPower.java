@@ -17,13 +17,15 @@ public class CityPower {
     private String whenDay;
     private String place;
     private String cause;
+    private Double latitude;
+    private Double longitude;
 
     public CityPower(String name, Country country) {
         this.name = name;
         this.country = country;
     }
 
-    public CityPower(long idCity, String name, Country country, String reason, String whenDay, String place, String cause) {
+    public CityPower(long idCity, String name, Country country, String reason, String whenDay, String place, String cause, Double latitude, Double longitude) {
         this.idCity = idCity;
         this.name = name;
         this.country = country;
@@ -31,6 +33,8 @@ public class CityPower {
         this.whenDay = whenDay;
         this.place = place;
         this.cause = cause;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
     public CityPower() {
@@ -91,5 +95,21 @@ public class CityPower {
 
     public void setCause(String cause) {
         this.cause = cause;
+    }
+
+    public Double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+
+    public Double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
     }
 }

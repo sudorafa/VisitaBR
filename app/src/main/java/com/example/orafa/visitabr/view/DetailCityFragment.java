@@ -4,6 +4,7 @@ package com.example.orafa.visitabr.view;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.Nullable;
@@ -17,12 +18,22 @@ import android.widget.TextView;
 import com.example.orafa.visitabr.R;
 import com.example.orafa.visitabr.dao.DCountryUser;
 import com.example.orafa.visitabr.model.CityPower;
+import com.example.orafa.visitabr.model.GeoBr;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import org.parceler.Parcels;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -30,9 +41,12 @@ import butterknife.OnClick;
 public class DetailCityFragment extends Fragment {
 
     private static final String EXTRA_CITY = "param1";
+    private static final String EXTRA_MAP = "param2";
 
     CityPower mCityPower;
     DCountryUser mDCountryUser;
+    List<GeoBr> mGeoBr;
+    GeoBrTask mTask;
 
     @BindView(R.id.text_view_city_title)
     TextView textViewCityTitle;
@@ -64,6 +78,10 @@ public class DetailCityFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        setRetainInstance(true);
+
+        mGeoBr = new ArrayList<>();
     }
 
     @Override
@@ -86,6 +104,15 @@ public class DetailCityFragment extends Fragment {
         toggleWWW();
 
         return layout;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        if (mGeoBr.size() == 0 && mTask == null) {
+            mTask = new GeoBrTask();
+            mTask.execute();
+        }
     }
 
     public static DetailCityFragment newInstance(CityPower cityPower) {
@@ -162,8 +189,57 @@ public class DetailCityFragment extends Fragment {
 
     @OnClick(R.id.float_button_map)
     public void mapClick() {
-        Intent intent = new Intent(getActivity(), MapsActivity.class);
+        //Intent intent = new Intent(getActivity(), MapsActivity.class);
+        //startActivity(intent);
+        findDateMap(mGeoBr);
+        CityPower cityPower = mCityPower;
+        Intent intent = new Intent(getContext(), MapsActivity.class);
+        Parcelable parcelable = Parcels.wrap(cityPower);
+        intent.putExtra(MapsActivity.EXTRA_MAP, parcelable);
         startActivity(intent);
+    }
+
+    class GeoBrTask extends AsyncTask<Void, Void, List<GeoBr>> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected List<GeoBr> doInBackground(Void... voids) {
+            List<GeoBr> geoBrs = null;
+            OkHttpClient client = new OkHttpClient();
+
+            Request request = new Request.Builder().url("https://raw.githubusercontent.com/sudorafa/MyJson/master/Country/geobr.json").build();
+
+            try {
+                Response response = client.newCall(request).execute();
+                String jsonString = response.body().string();
+                Gson gson = new Gson();
+                Type type = new TypeToken<List<GeoBr>>(){}.getType();
+                geoBrs = gson.fromJson(jsonString, type);
+                return geoBrs;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(List<GeoBr> geoBrs) {
+            super.onPostExecute(geoBrs);
+            mGeoBr.addAll(geoBrs);
+        }
+    }
+
+    public void findDateMap(List<GeoBr> listGeoBr) {
+        for (GeoBr geoBr : listGeoBr) {
+            if (geoBr.getNome_municipio().equals(mCityPower.getName())) {
+                mCityPower.setLatitude(geoBr.getLatitude());
+                mCityPower.setLongitude(geoBr.getLongitude());
+            }
+        }
     }
 
     @Override
