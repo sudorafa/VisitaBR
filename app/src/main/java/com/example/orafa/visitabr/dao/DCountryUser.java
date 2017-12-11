@@ -37,6 +37,7 @@ public class DCountryUser {
             cv.put("initials", cityPower.getCountry().getInitials());
             cv.put("region", cityPower.getCountry().getRegion());
             cv.put("capital", cityPower.getCountry().getCapital());
+            cv.put("img", cityPower.getCountry().getImg());
         } else if (table.equals(TABLE_CITY)) {
             cv.put("nameCity", cityPower.getName());
             cv.put("idCountry", cityPower.getCountry().getIdCountry());
@@ -210,7 +211,7 @@ public class DCountryUser {
         String[] arguments = null;
         List<CityPower> cityPowers = new ArrayList<CityPower>();
 
-        sql = "select distinct con.nameCountry, con.initials, con.region, con.capital, ct.idCity, ct.nameCity, ur.reason, ur.whenDay, ur.place, ur.cause from "
+        sql = "select distinct con.nameCountry, con.initials, con.region, con.capital, con.img, ct.idCity, ct.nameCity, ur.reason, ur.whenDay, ur.place, ur.cause from "
                 + TABLE_COUNTRY + " as con ";
         sql += "inner join " + TABLE_CITY + " as ct on con.idCountry = ct.idCountry ";
         sql += "inner join " + TABLE_USER_REASON + " as ur on con.idCountry = ct.idCountry and ur.idCity = ct.idCity ";
@@ -232,6 +233,7 @@ public class DCountryUser {
                 country.setInitials(cursor.getString(cursor.getColumnIndex("initials")));
                 country.setRegion(cursor.getString(cursor.getColumnIndex("region")));
                 country.setCapital(cursor.getString(cursor.getColumnIndex("capital")));
+                country.setImg(cursor.getString(cursor.getColumnIndex("img")));
 
                 cityPower.setCountry(country);
                 cityPower.setName(cursor.getString(cursor.getColumnIndex("nameCity")));

@@ -242,6 +242,8 @@ public class DetailCityFragment extends Fragment {
 
     public void findDateMap(List<GeoBr> listGeoBr) {
         for (GeoBr geoBr : listGeoBr) {
+            String cityReplaceCapital = mCityPower.getName().replace("CAPITAL: ", "");
+            mCityPower.setName(cityReplaceCapital);
             if (geoBr.getNome_municipio().equals(mCityPower.getName()) && geoBr.getEstado().equals(mCityPower.getCountry().getName())) {
                 mCityPower.setLatitude(geoBr.getLatitude());
                 mCityPower.setLongitude(geoBr.getLongitude());

@@ -35,6 +35,7 @@
     <string name="cities_went">Cities Went</string>
     <string name="view_map">Map</string>
     <string name="detail_city">Detail City</string>
+    <string name="marker_in">Marker in:</string>
     <string-array name="country_arrays">
         <item>Recreation</item>
         <item>Job</item>
