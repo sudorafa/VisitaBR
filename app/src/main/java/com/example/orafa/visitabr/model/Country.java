@@ -16,15 +16,17 @@ public class Country {
     private String name;
     private String region;
     private String capital;
+    private String img;
     private List<String> city;
 
-    public Country(long idCountry, String initials, String name, String region, String capital, List<String> city) {
+    public Country(long idCountry, String initials, String name, String region, String capital, String img, List<String> city) {
         this.idCountry = idCountry;
         this.initials = initials;
         this.name = name;
         this.region = region;
         this.capital = capital;
         this.city = city;
+        this.img = img;
     }
 
     public Country() {
@@ -73,6 +75,14 @@ public class Country {
 
     public List<String> getCity() {
         return city;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
     }
 
     public void setCity(List<String> city) {

@@ -1,6 +1,7 @@
 package com.example.orafa.visitabr.view;
 
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
@@ -42,6 +43,8 @@ public class DetailCityFragment extends Fragment {
 
     private static final String EXTRA_CITY = "param1";
     private static final String EXTRA_MAP = "param2";
+
+    private ProgressDialog dialog;
 
     CityPower mCityPower;
     DCountryUser mDCountryUser;
@@ -204,6 +207,8 @@ public class DetailCityFragment extends Fragment {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
+            // aqui começamos a exibir o loading
+            dialog = ProgressDialog.show(getContext(),getString(R.string.detail_city),getString(R.string.loading));
         }
 
         @Override
@@ -217,7 +222,8 @@ public class DetailCityFragment extends Fragment {
                 Response response = client.newCall(request).execute();
                 String jsonString = response.body().string();
                 Gson gson = new Gson();
-                Type type = new TypeToken<List<GeoBr>>(){}.getType();
+                Type type = new TypeToken<List<GeoBr>>() {
+                }.getType();
                 geoBrs = gson.fromJson(jsonString, type);
                 return geoBrs;
             } catch (Exception e) {
@@ -229,15 +235,17 @@ public class DetailCityFragment extends Fragment {
         @Override
         protected void onPostExecute(List<GeoBr> geoBrs) {
             super.onPostExecute(geoBrs);
+            dialog.dismiss();
             mGeoBr.addAll(geoBrs);
         }
     }
 
     public void findDateMap(List<GeoBr> listGeoBr) {
         for (GeoBr geoBr : listGeoBr) {
-            if (geoBr.getNome_municipio().equals(mCityPower.getName())) {
+            if (geoBr.getNome_municipio().equals(mCityPower.getName()) && geoBr.getEstado().equals(mCityPower.getCountry().getName())) {
                 mCityPower.setLatitude(geoBr.getLatitude());
                 mCityPower.setLongitude(geoBr.getLongitude());
+                break;
             }
         }
     }

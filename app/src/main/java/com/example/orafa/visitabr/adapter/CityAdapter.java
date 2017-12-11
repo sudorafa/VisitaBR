@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.orafa.visitabr.R;
 import com.example.orafa.visitabr.model.CityPower;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -47,6 +48,8 @@ public class CityAdapter extends ArrayAdapter<CityPower>{
 
         viewHolder.textViewName.setText(String.format("%s - %s", cityPower.getName(), cityPower.getCountry().getInitials()));
         viewHolder.textViewRegion.setText(String.format("%s - %s", cityPower.getCountry().getName(), cityPower.getCountry().getRegion()));
+
+        Picasso.with(getContext()).load(cityPower.getCountry().getImg()).into(viewHolder.imageViewCover);
 
         return convertView;
     }

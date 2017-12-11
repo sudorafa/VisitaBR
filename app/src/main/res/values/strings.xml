@@ -42,4 +42,5 @@
     </string-array>
     <string name="title_activity_maps">Map</string>
     <string name="view_map">Ver Mapa</string>
+    <string name="detail_city">Detalhe da Cidade</string>
 </resources>

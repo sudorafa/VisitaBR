@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.orafa.visitabr.R;
 import com.example.orafa.visitabr.model.Country;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -46,6 +47,8 @@ public class CountryAdapter extends ArrayAdapter<Country> {
 
         viewHolder.textViewName.setText(String.format("%s / %s", country.getName(), country.getInitials()));
         viewHolder.textViewRegion.setText(String.format("%s. Capital: %s", country.getRegion(), country.getCapital()));
+
+        Picasso.with(getContext()).load(country.getImg()).into(viewHolder.imageViewCover);
 
         return convertView;
     }
