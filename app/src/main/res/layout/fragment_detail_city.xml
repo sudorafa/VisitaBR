@@ -42,9 +42,8 @@
 
                 <android.support.design.widget.FloatingActionButton
                     android:id="@+id/float_button_wish"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
                     android:src="@drawable/ic_favorite"
                     app:fabSize="normal" />
 
@@ -65,9 +64,8 @@
 
                 <android.support.design.widget.FloatingActionButton
                     android:id="@+id/float_button_went"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
                     android:src="@drawable/ic_person_pin"
                     app:fabSize="normal" />
 
@@ -87,9 +85,8 @@
 
                 <android.support.design.widget.FloatingActionButton
                     android:id="@+id/float_button_will"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
                     android:src="@drawable/ic_pin_drop"
                     app:fabSize="normal" />
 
@@ -109,9 +106,8 @@
 
                 <android.support.design.widget.FloatingActionButton
                     android:id="@+id/float_button_map"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
                     android:src="@drawable/ic_map"
                     app:fabSize="normal" />
 
